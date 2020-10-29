@@ -1,0 +1,11 @@
+.weather {
+  padding-top: 100px;
+  padding-left: 10px;
+  text-align: left;
+  width: 400px;
+  height: 100px;
+  font-family: cursive;
+  color: black;
+  text-shadow: 2px 2px 3px #000;
+  font-size: 40px;
+}

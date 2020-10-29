@@ -1,11 +1,14 @@
 import React from "react";
+import "./form.css"
 
 const Form  = (props) => { 
-    return (       
+    return (      
+        <div className="form">
                 <form onSubmit={props.weathetMethod}>
                 <input type="text" name="city" placeholder="Город"/>
                 <button>Получить погоду</button>
-            </form>  
+            </form> 
+            </div>
     );
     }
 export default Form;

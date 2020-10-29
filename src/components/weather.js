@@ -1,10 +1,11 @@
 import React from "react";
+import "./weather.css"
 
 
 
 const Weather = (props) => {
     return (
-            <div>
+            <div className="weather">
                 { props.city &&
                     <div>
                 <p>Местоположение: {props.city},{props.country}</p>
