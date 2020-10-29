@@ -1,8 +1,12 @@
 .info {
-  background-color: blueviolet;
   width: 650px;
   height: 650px;
   text-align: center;
   margin: 0 auto;
   padding: 150px;
+}
+.color_info_text {
+  color: black;
+  font-size: 30px;
+  font-family: fantasy;
 }

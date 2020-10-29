@@ -20,14 +20,20 @@ class App extends React.Component {
     e.preventDefault();
     var city = e.target.elements.city.value;
     
-    
-
-    if (city) {
+  
+    if (city ) {
       const api_url = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
       const data = await api_url.json();
- 
-      
-
+    if(data.cod === '404'){
+                return this.setState({
+                    temp: undefined,
+                    city: undefined,
+                    country: undefined,
+                    sunrise: undefined,
+                    sunset: undefined,
+                    error:"City not found"
+                });
+            }
       this.setState({
         temp: data.main.temp,
         city: data.name,
@@ -38,14 +44,15 @@ class App extends React.Component {
       });
     } else {
       this.setState({
-   temp: undefined,
-    city: undefined,
-    country: undefined,
-    humidity: undefined,
-    error: "Введите название города"
+      temp: undefined,
+      city: undefined,
+      country: undefined,
+      humidity: undefined,
+      error: "Введите название города"
       
       });
     }
+    
   }
 
   render() {
