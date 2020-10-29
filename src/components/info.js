@@ -1,7 +1,6 @@
 import React from "react";
 
-class Info extends React.Component {
-    render(){
+const Info = () => {
         return (
             <div>
                 <h2>Погодное приложение</h2>
@@ -9,5 +8,4 @@ class Info extends React.Component {
         </div>
     );
     }
-}
 export default Info;

@@ -11,8 +11,7 @@ class App extends React.Component {
     temp: undefined,
     city: undefined,
     country: undefined,
-    sunrise: undefined,
-    sunset: undefined,
+    humidity: undefined,
     error: undefined
 }
 
@@ -26,23 +25,23 @@ class App extends React.Component {
       const api_url = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
       const data = await api_url.json();
  
-      var sunset = data.sys.sunset;
-      var date = new Date();
-      date.setTime(sunset);
-      var sunser_date = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-
-      var sunrise = data.sys.sunrise;
-      var date1 = new Date();
-      date.setTime(sunrise);
-      var sunrise_date = date1.getHours() + ":" + date1.getMinutes() + ":" + date1.getSeconds();
+      
 
       this.setState({
         temp: data.main.temp,
         city: data.name,
         country: data.sys.country,
-        sunset: sunser_date,
-        sunrise: sunrise_date,
-        error: ""
+        humidity: data.main.humidity,
+        error: undefined
+      
+      });
+    } else {
+      this.setState({
+   temp: undefined,
+    city: undefined,
+    country: undefined,
+    humidity: undefined,
+    error: "Введите название города"
       
       });
     }
@@ -57,8 +56,7 @@ class App extends React.Component {
           temp={this.state.temp}
           city={this.state.city}
           country={this.state.country}
-          sunrise={this.state.sunrise}
-          sunset={this.state.sunset}
+          humidity={this.state.humidity}
           error={this.state.error}
         />
     </div>
